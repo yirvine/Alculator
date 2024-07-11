@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate
@@ -10,6 +9,14 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
+
+  // Log all available fonts to verify that your custom font is being loaded
+  for (NSString* family in [UIFont familyNames]) {
+      NSLog(@"%@", family);
+      for (NSString* name in [UIFont fontNamesForFamilyName: family]) {
+          NSLog(@"Family name:  %@, Font name:  %@", family, name);
+      }
+  }
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
